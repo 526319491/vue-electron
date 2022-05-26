@@ -16,13 +16,17 @@ async function createWindow() {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-	// frame: false,
+	useContentSize: true,
+	frame: false,
+	resizable: false,
+	// movable:false,
     webPreferences: {
-      
+      webSecurity: false,
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: true,
       contextIsolation: true,
+	  
 	  preload:path.join(__dirname, "preload.js")
     }
   })
